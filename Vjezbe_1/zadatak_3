@@ -1,0 +1,24 @@
+def unos_tocke():
+    while True:
+        try:
+            x = float(input("Unesite x koordinatu: "))
+            y = float(input("Unesite y koordinatu: "))
+            return x, y
+        except ValueError:
+            print("Pogrešan unos. Molimo vas da unesete brojčane vrijednosti.")
+
+def jednadzba_pravca(tocka1, tocka2):
+    if tocka1[0] == tocka2[0]:
+        print(f"Pravac je vertikalan i ima jednadžbu x = {tocka1[0]}")
+    else:
+        nagib = (tocka2[1] - tocka1[1]) / (tocka2[0] - tocka1[0])
+        pomicanje = tocka1[1] - nagib * tocka1[0]
+        print(f"Jednadžba pravca je y = {nagib}x + {pomicanje}")
+
+print("Unesite koordinate prve točke:")
+tocka1 = unos_tocke()
+
+print("Unesite koordinate druge točke:")
+tocka2 = unos_tocke()
+
+jednadzba_pravca(tocka1, tocka2)
