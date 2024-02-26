@@ -7,7 +7,7 @@ def pravac(x3, y3, x4, y4):
     b = y4 - x4 * a
     return a, b
 
-koeficijenti = pravac(-1, 3, 3, -1)
+koeficijenti = pravac(3, 3, 3, 3)
 
 if koeficijenti is not None:
     a, b = koeficijenti
