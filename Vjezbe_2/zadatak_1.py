@@ -34,4 +34,4 @@ def gibanje(F, m, trajanje=10, korak_vremena=0.01):
     plt.show()
 
 # Pozivanje funkcije za jednoliko gibanje
-gibanje(30, 50)
+gibanje(33, 63)
