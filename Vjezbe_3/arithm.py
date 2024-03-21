@@ -21,3 +21,12 @@ s = (suma)/len(tocke2)
 standarnda = math.sqrt(s)
 print(standarnda)
 
+#b) gotovi moduli
+
+vrijednosti = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+arit_sredina = np.mean(vrijednosti) #modul za prosjecnu vrijednost na eng
+print(arit_sredina)
+
+vrijednosti2= [2, 4, 5, 7, 9, 10, 11, 13, 14, 15]
+std_devijacija = np.std(vrijednosti2)
+print(std_devijacija)
