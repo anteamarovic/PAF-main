@@ -1,35 +1,33 @@
-import calculus as cal
 import numpy as np
 import matplotlib.pyplot as plt
 
-a = -5
-b = 5
-ep = 0.01
-metoda = 3
-x, y = cal.derivacija_intervala(cal.funkcija, a, b, ep)
+# Definiraj funkciju
+def funkcija(x):
+    return np.sin(x)
 
-fig, ax = plt.subplots()
-ax.plot(x, y)
-ax.set_xlabel('x')
-ax.set_ylabel('derivacija')
-ax.set_title('Numericka derivacija funkcije ')
-plt.show() 
+# Definiraj funkciju za derivaciju
+def derivacija(f, x, dx=1e-6):
+    return (f(x + dx) - f(x - dx)) / (2 * dx)
 
-##analiticko rjesenje:
-def fun(x):
-    return (x**3)+(2*x**2)+x
+# Definiraj vrijednosti x
+x = np.linspace(-5, 5, 1000)
 
-x_analiticko=np.linspace(a,b,1000)
-y_analiticko=(3*(x_analiticko**2)+(2*(x_analiticko)**2))
+# Izračunaj derivaciju
+y = derivacija(funkcija, x)
 
-##numericko
-x_numericko,y_numericko=cal.derivacija_intervala(cal.funkcija,a,b,ep)
+# Prikaži derivaciju
+plt.plot(x, y, label='Derivacija funkcije sin(x)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
 
+# Analitičko rješenje
+y_analiticko = np.cos(x)
 
-fig,ax=plt.subplots()
-ax.plot(x_analiticko,y_analiticko,label="Analiticko rjesenje")
-ax.plot(x_numericko,y_numericko,label="Numericko rjesenje")
-ax.set_xlabel('x')
-ax.set_ylabel('y')
-ax.legend()
+# Prikaži numeričko i analitičko rješenje
+plt.plot(x, y, label='Numeričko rješenje')
+plt.plot(x, y_analiticko, label='Analitičko rješenje')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
 plt.show()
