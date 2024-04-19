@@ -1,46 +1,54 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-class HarmoničkiOskilator:
+class HarmonijskiOskilator:
+    def __init__(self, x0, v0, k, m):
+        self.x0 = x0
+        self.v0 = v0
+        self.k = k
+        self.m = m
 
-    def __init__(self, masa, opruga_konstanta, početni_položaj, početna_brzina, vremenski_korak):
-        self.masa = masa
-        self.opruga_konstanta = opruga_konstanta
-        self.početni_položaj = početni_položaj
-        self.početna_brzina = početna_brzina
-        self.vremenski_korak = vremenski_korak
+    def položaj(self, t):
+        omega = np.sqrt(self.k / self.m)
+        return self.x0 * np.cos(omega * t) + (self.v0 / omega) * np.sin(omega * t)
 
-    def x(self, t):
-        return self.početni_položaj * np.cos(np.sqrt(self.opruga_konstanta / self.masa) * t)
+    def brzina(self, t):
+        omega = np.sqrt(self.k / self.m)
+        return -self.x0 * omega * np.sin(omega * t) + self.v0 * np.cos(omega * t)
 
-    def v(self, t):
-        return -self.početni_položaj * np.sqrt(self.opruga_konstanta / self.masa) * np.sin(np.sqrt(self.opruga_konstanta / self.masa) * t)
+    def ubrzanje(self, t):
+        omega = np.sqrt(self.k / self.m)
+        return -self.x0 * omega**2 * np.cos(omega * t) - self.v0 * omega * np.sin(omega * t)
 
-    def a(self, t):
-        return -self.početni_položaj * (self.opruga_konstanta / self.masa) * np.cos(np.sqrt(self.opruga_konstanta / self.masa) * t)
+# Testiranje klase HarmonijskiOskilator
+ho = HarmonijskiOskilator(x0=1.0, v0=0.0, k=4.0, m=1.0)
 
-    def prikaži_grafove(self):
-        vrijeme = np.arange(0, 10, self.vremenski_korak)
-        x_vrijednosti = self.x(vrijeme)
-        v_vrijednosti = self.v(vrijeme)
-        a_vrijednosti = self.a(vrijeme)
+# Vremenske vrijednosti
+t = np.linspace(0, 10, 1000)
 
-        plt.figure(figsize=(14, 10))
+# Položaj u ovisnosti o vremenu
+plt.figure()
+plt.plot(t, ho.položaj(t))
+plt.xlabel('Vrijeme (s)')
+plt.ylabel('Položaj (m)')
+plt.title('Položaj u ovisnosti o vremenu')
+plt.show()
 
-        plt.subplot(3, 1, 1)
-        plt.plot(vrijeme, x_vrijednosti)
-        plt.title('Graf ovisnosti položaja o vremenu')
+# Brzina u ovisnosti o vremenu
+plt.figure()
+plt.plot(t, ho.brzina(t))
+plt.xlabel('Vrijeme (s)')
+plt.ylabel('Brzina (m/s)')
+plt.title('Brzina u ovisnosti o vremenu')
+plt.show()
 
-        plt.subplot(3, 1, 2)
-        plt.plot(vrijeme, v_vrijednosti)
-        plt.title('Graf ovisnosti brzine o vremenu')
-
-        plt.subplot(3, 1, 3)
-        plt.plot(vrijeme, a_vrijednosti)
-        plt.title('Graf ovisnosti ubrzanja o vremenu')
-
-        plt.tight_layout()
-        plt.show()
+# Ubrzanje u ovisnosti o vremenu
+plt.figure()
+plt.plot(t, ho.ubrzanje(t))
+plt.xlabel('Vrijeme (s)')
+plt.ylabel('Ubrzanje (m/s^2)')
+plt.title('Ubrzanje u ovisnosti o vremenu')
+plt.show()
 
 
 
