@@ -20,13 +20,11 @@ class HarmonijskiOskilator:
         omega = np.sqrt(self.k / self.m)
         return -self.x0 * omega**2 * np.cos(omega * t) - self.v0 * omega * np.sin(omega * t)
 
-# Testiranje klase HarmonijskiOskilator
+
 ho = HarmonijskiOskilator(x0=1.0, v0=0.0, k=4.0, m=1.0)
 
-# Vremenske vrijednosti
 t = np.linspace(0, 10, 1000)
 
-# Položaj u ovisnosti o vremenu
 plt.figure()
 plt.plot(t, ho.položaj(t))
 plt.xlabel('Vrijeme (s)')
@@ -34,7 +32,6 @@ plt.ylabel('Položaj (m)')
 plt.title('Položaj u ovisnosti o vremenu')
 plt.show()
 
-# Brzina u ovisnosti o vremenu
 plt.figure()
 plt.plot(t, ho.brzina(t))
 plt.xlabel('Vrijeme (s)')
@@ -42,7 +39,6 @@ plt.ylabel('Brzina (m/s)')
 plt.title('Brzina u ovisnosti o vremenu')
 plt.show()
 
-# Ubrzanje u ovisnosti o vremenu
 plt.figure()
 plt.plot(t, ho.ubrzanje(t))
 plt.xlabel('Vrijeme (s)')
