@@ -35,7 +35,7 @@ def provjeri_poziciju_tocke(tocka, ishodiste, radijus, spremi_sliku=False, ime_s
         plt.show()
 
 # Primjeri korištenja
-provjeri_poziciju_tocke([2, 3], [0, 0], 5, spremi_sliku=True, ime_slike="slika_kruga")
+provjeri_poziciju_tocke([2, 3], [0, 0], 5, spremi_sliku=True, ime_slike="slika_kruznice")
 provjeri_poziciju_tocke([6, 8], [0, 0], 5)
 provjeri_poziciju_tocke([3, 4], [0, 0], 5, spremi_sliku=True, ime_slike="kruznica2")
 provjeri_poziciju_tocke([-2, -3], [0, 0], 5)
