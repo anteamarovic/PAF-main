@@ -14,7 +14,7 @@ def provjeri_poziciju_tocke(tocka, ishodiste, radijus, spremi_sliku=False, ime_s
     else:
         pozicija = "izvan"
     
-    # Crtanje kruga i točke
+    # Crtanje kruznice i točke
     fig, ax = plt.subplots()
     krug = plt.Circle(ishodiste, radijus, edgecolor='blue', facecolor='none')
     ax.add_patch(krug)
