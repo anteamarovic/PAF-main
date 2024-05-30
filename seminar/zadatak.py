@@ -23,14 +23,14 @@ def provjeri_poziciju_tocke(tocka, ishodiste, radijus, spremi_sliku=False, ime_s
     ax.legend()
     
     # Ispis rezultata
-    print(f"Točka je {pozicija} kruga i udaljena je {abs(udaljenost - radijus):.2f} jedinica.")
+    print(f"Točka je {pozicija} kruznice i udaljenost je: {abs(udaljenost - radijus):.2f}")
     
     # Prikazivanje ili spremanje slike
     if spremi_sliku:
         if ime_slike:
             plt.savefig(f"{ime_slike}.png")
         else:
-            plt.savefig("pozicija_tocke_u_krugu.png")
+            plt.savefig("pozicija_tocke_kruznice.png")
     else:
         plt.show()
 
